@@ -140,14 +140,11 @@ bluetooth.profile.pbap.server.enabled?=true
 persist.bluetooth.a2dp_offload.disabled=false
 persist.vendor.bt.aac_frm_ctl.enabled=true
 persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
-persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptiver2
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
-persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aptxadaptiver2_1_support=true
-persist.vendor.qcom.bluetooth.scram.enabled=false
-persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
+vendor.bluetooth.soc=hastings
 
 # Camera
 camera.disable_zsl_mode=true
@@ -162,9 +159,6 @@ persist.vendor.dpm.idletimer.mode=default
 persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.vendor.dpmhalservice.enable=1
 
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
@@ -177,7 +171,7 @@ debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
 debug.sf.high_fps_early_phase_offset_ns=-4000000
 debug.sf.high_fps_late_app_phase_offset_ns=1000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-4000000
+debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
 debug.sf.hw=0
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.set_idle_timer_ms=30080
@@ -252,6 +246,7 @@ persist.vendor.radio.mbn_trace=true
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
+ro.telephony.block_binder_thread_on_incoming_calls=false
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=33,33

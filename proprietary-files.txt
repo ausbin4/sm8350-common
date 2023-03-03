@@ -21,6 +21,8 @@ vendor/lib/libaudioalsa.so
 vendor/lib/libaudiocloudctrl.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudiocloudctrl.so
+vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioparsers.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libbatterylistener.so
@@ -29,6 +31,7 @@ vendor/lib/libexthwplugin.so
 vendor/lib/libhdmiedid.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libhfp.so
+vendor/lib/libmmhardware.so
 vendor/lib/libqtigef.so
 vendor/lib/libresampler.so
 vendor/lib/libsndmonitor.so
@@ -185,13 +188,13 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 
 # Computer Vision (FastCV)
--vendor/lib64/libfastcvopt.so
 vendor/etc/cvp/v2.0/facedetection/model1.dat
 vendor/etc/cvp/v2.1/facedetection/model2.dat
 vendor/lib64/libcvp2_1.so
 vendor/lib64/libcvp_common.so
 vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/libfastcvdsp_stub.so
+vendor/lib64/libfastcvopt.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Configstore
@@ -335,6 +338,7 @@ vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
+vendor/lib64/liblocdiagiface.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
 vendor/lib64/libqcc_file_agent.so
@@ -704,7 +708,6 @@ vendor/etc/perf/perfconfigstore.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
 vendor/etc/perf/thermalboost.conf
-vendor/etc/task_profiles.json
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libperfioctl.so
@@ -948,6 +951,10 @@ vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+
+# QTEE - from LA.UM.9.14.r1-18400.02-LAHAINA.QSSI12.0
+vendor/lib/libQTEEConnector_listener.so|750974e3abd6a7c499d89b9a6b470add234e29ea
+vendor/lib64/libQTEEConnector_listener.so|8d25d1ac1374673ec2c1c5356f5b04e500d06af4
 
 # VPP
 vendor/bin/hw/qconfigservice

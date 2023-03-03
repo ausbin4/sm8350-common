@@ -23,7 +23,6 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 import com.android.settingslib.widget.R;
 
 public class RefreshActivity extends CollapsingToolbarBaseActivity {
-
     private static final String TAG_REFRESH = "refresh";
 
     @Override

@@ -23,10 +23,6 @@ $(call inherit-product, vendor/xiaomi/sm8350-common/sm8350-common-vendor.mk)
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# AID/fs configs
-PRODUCT_PACKAGES += \
-    fs_config_files
-
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
 
@@ -120,7 +116,10 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default 
+    audio.bluetooth.default \
+    libldacBT_abr \
+    libldacBT_bco \
+    libldacBT_enc
 
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1.vendor \
@@ -132,6 +131,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
+
+# Blur
+TARGET_ENABLE_BLUR := true
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
@@ -179,6 +181,7 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@3.0-service \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
@@ -198,6 +201,9 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libtinyxml \
     memtrack.default
+
+PRODUCT_PACKAGES += \
+    disable_configstore
 
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8350/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
@@ -318,12 +324,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
-ifneq ("$(wildcard hardware/lineage/livedisplay)", "")
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.lineage.livedisplay@2.1-service.xiaomi_sm8350
-endif
 
 # Media
 PRODUCT_PACKAGES += \
@@ -382,6 +385,10 @@ PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail_vendor \
     libavservices_minijail.vendor
+
+# Native libraries whitelist
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
 # Netd
 PRODUCT_PACKAGES += \
@@ -455,7 +462,7 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/configs/telephony_system-ext_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext-privapp-permissions-qti.xml
 
 # Radio
@@ -475,6 +482,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
+    android.frameworks.sensorservice@1.0 \
+    android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@2.1-service.xiaomi_sm8350-multihal \
     sensors.xiaomi_sm8350 \
     vendor.qti.hardware.display.mapper@1.1.vendor
