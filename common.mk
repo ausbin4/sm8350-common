@@ -616,3 +616,7 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     libnl \
     libwfdaac_vendor
+
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
